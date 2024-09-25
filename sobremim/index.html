@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header id="cabecalho">
+        <h1>Sobre Mim</h1>
+    </header>
+    <main>
+        <div class="carrossel">
+            <button class="seta" id="prev">❮</button>
+            <img class="imagem active" src="img.1.jfif" alt="Imagem 1">
+            <img class="imagem" src="img.2.jfif" alt="Imagem 2">
+            <img class="imagem" src="img.3.jfif" alt="Imagem 3">
+            <img class="imagem" src="img.4.jfif" alt="Imagem 4">
+            <img class="imagem" src="img.5.jfif" alt="Imagem 5">
+            <img class="imagem" src="img.6.jfif" alt="Imagem 6">
+            <button class="seta" id="next">❯</button>
+        </div>
+        
+        <section class="sobre">
+            <h2>Eu me chamo Rayssa Goulart ❤️</h2>
+            <p>
+                Atualmente, tenho 18 anos e sou uma pessoa cercada por muito amor. Tenho muitos amigos que fiz ao longo da minha jornada, e eles são muito importantes para mim.
+            </p>
+            <p>
+                Atualmente, trabalho como jovem aprendiz na Intelbras, na filial, e estou fazendo um curso de back-end no SENAI. Além disso, estou cursando Psicologia na Anhanguera, onde também fiz amigos preciosos no ambiente de estudo.
+            </p>
+            <p>
+                Sou a feliz tutora de uma linda cachorrinha pitbull chamada Zara. Antes dela, tive uma cachorrinha muito especial, chamada Bela, que infelizmente faleceu.
+            </p>
+            <p>
+                Estou muito contente com minhas conquistas e espero me tornar uma grande psicóloga um dia. Meu curso no SENAI tem me ensinado muito. Também tenho um namorado e uma sobrinha que amo profundamente.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        let indiceAtual = 0;
+        const imagens = document.querySelectorAll('.imagem');
+        mostrarImagem(indiceAtual);
+
+        function mostrarImagem(indice) {
+            imagens.forEach((img, i) => {
+                img.classList.toggle('active', i === indice);
+            });
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            indiceAtual = (indiceAtual + 1) % imagens.length;
+            mostrarImagem(indiceAtual);
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
+            mostrarImagem(indiceAtual);
+        });
+    </script>
+</body>
+</html>
